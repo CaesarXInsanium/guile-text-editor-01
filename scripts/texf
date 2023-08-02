@@ -1,0 +1,9 @@
+#!/usr/bin/env -S guile -e main -s
+!#
+
+(use-modules (texf))
+
+
+;; arguments should no be processed yet
+(define (main args)
+	(texf-main args))

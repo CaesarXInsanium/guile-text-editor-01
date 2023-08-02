@@ -1,0 +1,4 @@
+#!/bin/bash
+
+GUILE_LOAD_PATH=$(pwd)
+./scripts/texf $@

@@ -1,0 +1,78 @@
+# -*- mode: org; coding: utf-8; -*-
+
+#+TITLE: README for Guile Texf
+
+* Text Editor By Ceasar X Insanium
+
+This project is something that I actually want to do. I have begun to hate the
+different options that are available. Neovim and Emacs are difficult to get just
+right. VS code sucks. Vim is old. Helix is simply not ready yet.
+
+I finally have the motivation to code something that might be useful.
+
+** Build Steps
+
+#+begin_src:bash
+hall scan -x
+hall dist -x
+guix shell -Df guix.scm
+hall build -x
+autoreconf -vif
+./configure
+#+end_src
+
+** Motivations
+
+I want a text editor that is built using GNU Guile. It will be configured using
+GNU Guile Scheme and be a blending of Emacs and Vim.
+
+*** Design
+
+- Modal Editing. 
+- Extensibility: later feature
+
+It must have a backend and a front end. The backend is the real text editor. Here
+function related to text editing will exist.
+
+Front end will take in data provided by the backend in order to display information
+in the TUI.
+
+**** Buffer
+
+It really is just a list of strings
+
+* Features
+
+Right now I am just starting out since I recently have this idea. I will build
+this text editor using GNU Guile Scheme. It will use the hall package manager
+for the dependencies and Guix for distribution.
+
+It will be best for me to split the features into easy to hard Section
+
+Milestones
+
+- First milestone is to open a file and view it.
+- Second milestone is to open a file edit it and save it.
+- Third milestone is to open file edit it and discard changes.
+
+** Core
+
+Here are the features that are required for a TUI text editor to even exist.
+I plan to work on these first. 
+
+
+- Window
+- buffer
+- open files
+- display files
+- edit files
+- save files
+
+** Easy
+
+Features
+
+
+** Medium
+
+** Hard
