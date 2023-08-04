@@ -28,7 +28,7 @@ GNU Guile Scheme and be a blending of Emacs and Vim.
 
 *** Design
 
-- Modal Editing. 
+- Modal Editing.
 - Extensibility: later feature
 
 It must have a backend and a front end. The backend is the real text editor. Here
@@ -40,6 +40,14 @@ in the TUI.
 **** Buffer
 
 It really is just a list of strings
+
+The question becomes, how do I display only a section of it?
+
+- we have a set number of lines that can be used to display
+- we store the number of lines in a state.  
+- we have a record that defines the information about a given area on which things
+  can be rendered upon
+  - lines, coloums, type
 
 * Features
 
