@@ -31,11 +31,6 @@
          (ranged-list (- (cdr range) (car range))))))
 
 ;; If a rendered buffer is just a list of lines
-(define (draw-on-screen screen rendered)
-  (for-each (lambda (line)
-              (addstr screen line)
-              (addch screen (normal #\newline)))
-            rendered))
 
 (export complex->normal
         buffer->string

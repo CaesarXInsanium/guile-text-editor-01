@@ -1,6 +1,7 @@
 (define-module (texf buffer))
 
-(use-modules (ice-9 textual-ports))
+(use-modules (ice-9 textual-ports)
+             (ncurses curses))
 
 
 (define (load-buffer-object port)
@@ -29,11 +30,25 @@
 (define (buffer-lines obj)
   (vector-ref obj 2))
 
-(define (close-buffer-object obj save)
-  (if save
-    (error "write contents to port")
-    (error "free all memory associated with this thing and close port")))
+;; Rendering function
+(define (buffer-render bf)
+  (map (lambda (line)
+         (inverse line))
+       (buffer-lines bf)))
+
+;; should implement a method of determining wether or not to save a file
+(define (save? obj) #f)
+
+(define (close-buffer-object obj)
+  (if (save? obj)
+    (error "writing and saving file is not implemented")
+    (close-port (buffer-port obj))))
 
 (export load-buffer-object
         make-buffer-object
-        buffer-object?)
+        buffer-object?
+        buffer-port
+        buffer-text
+        buffer-lines
+        buffer-render
+        close-buffer-object)

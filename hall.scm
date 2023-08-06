@@ -12,17 +12,26 @@
     `(("guile-ncurses" (guile-ncurses) ,guile-ncurses)))
   (skip ())
   (files (libraries
-           ((directory "texf" ()) (scheme-file "texf")))
+           ((directory
+              "texf"
+              ((scheme-file "render")
+               (scheme-file "constants")
+               (scheme-file "window")
+               (scheme-file "normal")
+               (scheme-file "buffer")
+               (scheme-file "text")
+               (scheme-file "input_mode")
+               (scheme-file "draw")
+               (scheme-file "state")))))
          (tests ((directory "tests" ())))
          (programs
            ((directory "scripts" ((text-file "texf")))))
          (documentation
-           ((directory "doc" ((texi-file "texf")))
-            (text-file "COPYING")
+           ((symlink "README" "README.org")
             (text-file "HACKING")
-            (symlink "README" "README.org")
-            (org-file "README")))
+            (text-file "COPYING")
+            (directory "doc" ((texi-file "texf")))))
          (infrastructure
-           ((scheme-file "hall")
+           ((scheme-file "guix")
             (text-file ".gitignore")
-            (scheme-file "guix")))))
+            (scheme-file "hall")))))
