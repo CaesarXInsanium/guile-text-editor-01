@@ -37,6 +37,12 @@ function related to text editing will exist.
 Front end will take in data provided by the backend in order to display information
 in the TUI.
 
+**** Flow
+
+we wait for the keypress. the mode function will determine wether to input it into the text
+or to process a command
+
+
 **** Buffer
 
 It really is just a list of strings
